@@ -21,10 +21,10 @@ import ansiblecmdb
 import ansiblecmdb.util as util
 import ansiblecmdb.render as render
 try:
-    from importlib.metadata import version
+    from importlib.metadata import version as get_version
 except ImportError:
     # Backport for Python < 3.8
-    from importlib_metadata import version
+    from importlib_metadata import version as get_version
 
 
 # Verify Python version
@@ -150,7 +150,7 @@ def main():
     data_dir = get_data_dir()
     tpl_dir = os.path.join(data_dir, 'tpl')
     static_dir = os.path.join(data_dir, 'static')
-    version = version("ansible-cmdb")
+    version = get_version("ansible-cmdb")
 
     parser = optparse.OptionParser(version="%prog v{0}".format(version))
     parser.set_usage(os.path.basename(sys.argv[0]) + " [option] <dir> > output.html")

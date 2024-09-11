@@ -13,3 +13,4 @@
 /example/cmdb/
 __pycache__
 *.pyc
+_version.py
